@@ -17,7 +17,7 @@ export function useTokens() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: PriceData[] = await response.json();
-        const processedTokens = data
+        const processedTokens: Token[] = data
           ?.filter(token => token.price)
           ?.map(token => ({
             currency: token.currency,
